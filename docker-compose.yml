@@ -1,0 +1,65 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: api_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - postgres-net
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - redis-net
+
+  api:
+    build: 
+      context: ./
+      dockerfile: Dockerfile-api
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres/api_db
+      - REDIS_HOST=redis
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - api-net
+      - redis-net
+      - postgres-net
+
+  web:
+    build: 
+      context: ./
+      dockerfile: Dockerfile-client
+    environment:
+      - API_URL=http://api:5000
+    ports:
+      - "5001:5001"
+    depends_on:
+      - api
+    networks:
+      - api-net
+      - web-net
+
+volumes:
+  postgres_data:
+
+networks:
+  redis-net:
+    driver: bridge
+    internal: true
+  postgres-net:
+    driver: bridge
+    internal: true
+  api-net:
+    driver: bridge
+    internal: true
+  web-net:
+    driver: bridge

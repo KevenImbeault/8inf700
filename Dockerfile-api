@@ -1,0 +1,21 @@
+# Use an official Python runtime as a base image
+FROM python:3.9-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy the API code into the container
+COPY ./API/api.py /app
+
+# Install dependencies
+RUN pip install flask flask-sqlalchemy sqlalchemy psycopg2-binary redis
+
+# Set environment variables for PostgreSQL and Redis
+ENV DATABASE_URL=postgresql://postgres:postgres@db/postgres
+ENV REDIS_HOST=redis
+
+# Expose the API server port
+EXPOSE 5000
+
+# Run the API
+CMD ["python", "api.py"]
