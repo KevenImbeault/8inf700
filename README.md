@@ -26,6 +26,6 @@ Dockerfile-client - Fichier Dockerfile pour créer l'image de l'app web
 Locustfile.py - Fichier de configuration pour l'utilitaire Locust pour des test de charge
 
 ## Commandes utilisés
-1. minikube start - Pour lancer minikube
-2. kubectl apply -f ./[service] - Utilise les fichiers dans un dossier pour créer les fonctions nécessaire aux services
-3. kubectl get hpa -w - Permet de monitor les HPA pour valider leur fonctionnement lors de test de charge.
+- minikube start - Pour lancer minikube
+- kubectl apply -f ./[service] - Utilise les fichiers dans un dossier pour créer les fonctions nécessaire aux services
+- kubectl get hpa -w - Permet de monitor les HPA pour valider leur fonctionnement lors de test de charge.
