@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import redis
 import json
 from sqlalchemy.exc import SQLAlchemyError
+from prometheus_flask_exporter import PrometheusMetrics
 
 # Load environment variables
 DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://user:password@localhost/dbname')
@@ -12,6 +13,7 @@ REDIS_PORT = os.getenv('REDIS_PORT', 6379)
 
 # Initialize Flask app
 app = Flask(__name__)
+PrometheusMetrics(app)
 
 # Configure PostgreSQL
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
@@ -78,4 +80,4 @@ def get_item(item_id):
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
