@@ -20,6 +20,7 @@ Dockerfile-client - Fichier Dockerfile pour créer l'image de l'app web
 *-claim.yaml - Fichier de configuration pour un Persistent Volume Claim
 *-pv.yaml - Fichier de configuration pour un Persistent Volume
 *-secret.yaml - Fichier de configuration pour un stockage de secret
+*-daemonset.yaml - Fichier de configuration pour un daemonset, utiliser seulement pour l'exporteur de metrics pour Kubernetes
 
 ## Autres Fichiers
 
@@ -29,3 +30,7 @@ Locustfile.py - Fichier de configuration pour l'utilitaire Locust pour des test 
 - minikube start - Pour lancer minikube
 - kubectl apply -f ./[service] - Utilise les fichiers dans un dossier pour créer les fonctions nécessaire aux services
 - kubectl get hpa -w - Permet de monitor les HPA pour valider leur fonctionnement lors de test de charge.
+- minikube tunnel - Nécessaire sur windows pour accéder aux ingress des services
+- minikube dashboard --url - Permet de lancer un dashboard pour voir la config de kubernetes
+- minikube docker-env - Permet de build des images docker utilisable par minikube/kubernetes
+- docker build -t api -f Dockerfile-api . - Permet de générer une image pour docker en utilisant un fichier Docker spécifique, quand plusieurs Dockerfile sont dans le même dossier
