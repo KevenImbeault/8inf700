@@ -13,14 +13,14 @@ Dockerfile-client - Fichier Dockerfile pour créer l'image de l'app web
 
 ## Fichiers YAML
 
-*-deployment.yaml - Fichier pour la configuration d'un Deployment kubernetes
-*-hpa.yaml - Fichier pour la configuration du Horizontal Pod Autoscaling pour un service
-*-ingress.yaml - Fichier pour la configuration de l'accès externe d'un service
-*-service.yaml - Fichier pour la déclaration d'un service pour rendre un deployment visible dans un node
-*-claim.yaml - Fichier de configuration pour un Persistent Volume Claim
-*-pv.yaml - Fichier de configuration pour un Persistent Volume
-*-secret.yaml - Fichier de configuration pour un stockage de secret
-*-daemonset.yaml - Fichier de configuration pour un daemonset, utiliser seulement pour l'exporteur de metrics pour Kubernetes
+*-deployment.yaml - Fichier pour la configuration d'un Deployment kubernetes  
+*-hpa.yaml - Fichier pour la configuration du Horizontal Pod Autoscaling pour un service  
+*-ingress.yaml - Fichier pour la configuration de l'accès externe d'un service  
+*-service.yaml - Fichier pour la déclaration d'un service pour rendre un deployment visible dans un node  
+*-claim.yaml - Fichier de configuration pour un Persistent Volume Claim  
+*-pv.yaml - Fichier de configuration pour un Persistent Volume  
+*-secret.yaml - Fichier de configuration pour un stockage de secret  
+*-daemonset.yaml - Fichier de configuration pour un daemonset, utiliser seulement pour l'exporteur de metrics pour Kubernetes  
 
 ## Autres Fichiers
 
